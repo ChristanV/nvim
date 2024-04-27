@@ -79,15 +79,36 @@ vim.cmd([[let g:terraform_align=1]])
 
 require'lspconfig'.terraformls.setup{}
 require'lspconfig'.tflint.setup{}
+require'lspconfig'.ansiblels.setup {
+  filetypes = {"yaml"},
+  settings = {
+    ansible = {
+      path = "ansible"
+    },
+    executionEnvironment = {
+      enabled = false
+    },
+    python = {
+      interpreterPath = "python"
+    },
+    validation = {
+      enabled = true,
+      lint = {
+        enabled = true,
+        path = "ansible-lint"
+      }
+    }
+  }
+}
 
 require'lspconfig'.yamlls.setup {
-    settings = {
-      yaml = {
-        schemaStore = {
-          url = "https://www.schemastore.org/api/json/catalog.json",
-          enable = true,
-        }
+  settings = {
+    yaml = {
+      schemaStore = {
+        url = "https://www.schemastore.org/api/json/catalog.json",
+        enable = true,
       }
-    },
-    on_attach = custom_lsp_attach
-  }
+    }
+  },
+  on_attach = custom_lsp_attach
+}
