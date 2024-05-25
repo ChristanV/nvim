@@ -8,6 +8,7 @@ return require('packer').startup(function(use)
   use "EdenEast/nightfox.nvim"
   use 'tiagovla/tokyodark.nvim'
   use 'gbprod/nord.nvim'
+  use 'nvim-tree/nvim-tree.lua'
   use {
    'nvim-telescope/telescope.nvim', tag = '0.1.0',
     requires = { {'nvim-lua/plenary.nvim'} }
