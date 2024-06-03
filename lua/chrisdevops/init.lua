@@ -245,6 +245,7 @@ require("nvim-tree").setup({
     group_empty = true,
   },
   filters = {
+    enable = false,
     dotfiles = false,
   },
 })
