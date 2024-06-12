@@ -200,6 +200,28 @@ require'lspconfig'.java_language_server.setup{
   capabilities = capabilities
 }
 
+require'lspconfig'.gopls.setup{
+  capabilities = capabilities
+}
+
+require'lspconfig'.tsserver.setup{
+  capabilities = capabilities,
+  init_options = {
+    plugins = {
+      {
+        name = "@vue/typescript-plugin",
+        location = "/usr/local/lib/node_modules/@vue/typescript-plugin",
+        languages = {"javascript", "typescript", "vue"},
+      },
+    },
+  },
+  filetypes = {
+    "javascript",
+    "typescript",
+    "vue",
+  },
+}
+
 require'lspconfig'.lua_ls.setup {
   capabilities = capabilities,
   on_init = function(client)
