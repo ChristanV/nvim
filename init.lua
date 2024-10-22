@@ -1,2 +1,7 @@
 require('plugins')
-require('chrisdevops')
+require('core')
+require('autocomplete')
+require('lsp')
+require('tree')
+require('search')
+require('mappings')

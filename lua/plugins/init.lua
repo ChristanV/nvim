@@ -8,7 +8,11 @@ return require('packer').startup(function(use)
   use "EdenEast/nightfox.nvim"
   use 'tiagovla/tokyodark.nvim'
   use 'gbprod/nord.nvim'
+
   use 'nvim-tree/nvim-tree.lua'
+  use 'nvim-tree/nvim-web-devicons'
+
+  use 'nvim-lua/plenary.nvim'
   use {
    'nvim-telescope/telescope.nvim', tag = '0.1.6',
     requires = { {'nvim-lua/plenary.nvim'} }
@@ -33,4 +37,10 @@ return require('packer').startup(function(use)
   use 'hrsh7th/vim-vsnip-integ'
 
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+  use {
+    'ThePrimeagen/harpoon',
+    branch = 'harpoon2',
+    requires = { {'nvim-lua/plenary.nvim'}
+  }
+}
 end)
