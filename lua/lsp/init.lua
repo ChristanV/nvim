@@ -101,18 +101,17 @@ require'lspconfig'.lua_ls.setup {
   }
 }
 
-require'lspconfig'.yamlls.setup {
-  capabilities = capabilities,
-  settings = {
-    yaml = {
-      schemas = {
-        ["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*",
-        ["../path/relative/to/file.yml"] = "/.github/workflows/*",
-        ["/path/from/root/of/project"] = "/.github/workflows/*",
-      },
-    },
-  }
-}
+-- require'lspconfig'.yamlls.setup {
+--   capabilities = capabilities,
+--   settings = {
+--     yaml = {
+--       schemas = {
+--          ["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*",
+--         ["https://raw.githubusercontent.com/instrumenta/kubernetes-json-schema/master/v1.18.0-standalone-strict/all.json"] = "/*.k8s.yaml",
+--       },
+--     },
+--   }
+-- }
 
 require'lspconfig'.terraformls.setup{
   capabilities = capabilities
@@ -132,7 +131,7 @@ vim.cmd([[let g:terraform_align=1]])
 
 require'lspconfig'.ansiblels.setup {
   capabilities = capabilities,
-  filetypes = {"yaml"},
+  filetypes = {"yml"},
   settings = {
     ansible = {
       path = "ansible"
@@ -152,8 +151,13 @@ require'lspconfig'.ansiblels.setup {
     }
   }
 }
+
 require'lspconfig'['pyright'].setup{
   capabilities = capabilities,
   on_attach = on_attach,
   flags = lsp_flags,
+}
+
+require'lspconfig'.helm_ls.setup{
+  capabilities = capabilities
 }
