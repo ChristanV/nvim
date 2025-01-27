@@ -36,11 +36,15 @@ return require('packer').startup(function(use)
   use 'hrsh7th/vim-vsnip'
   use 'hrsh7th/vim-vsnip-integ'
 
+  use {"ellisonleao/glow.nvim", config = function() require("glow").setup() end}
+
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
   use {
     'ThePrimeagen/harpoon',
     branch = 'harpoon2',
     requires = { {'nvim-lua/plenary.nvim'}
   }
+
+
 }
 end)

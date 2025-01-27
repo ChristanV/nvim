@@ -114,7 +114,8 @@ require'lspconfig'.lua_ls.setup {
 -- }
 
 require'lspconfig'.terraformls.setup{
-  capabilities = capabilities
+  capabilities = capabilities,
+  filetypes = { "terraform", "terraform-vars" }
 }
 
 require'lspconfig'.tflint.setup{
