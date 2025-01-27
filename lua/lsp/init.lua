@@ -101,17 +101,21 @@ require'lspconfig'.lua_ls.setup {
   }
 }
 
--- require'lspconfig'.yamlls.setup {
---   capabilities = capabilities,
---   settings = {
---     yaml = {
---       schemas = {
---          ["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*",
---         ["https://raw.githubusercontent.com/instrumenta/kubernetes-json-schema/master/v1.18.0-standalone-strict/all.json"] = "/*.k8s.yaml",
---       },
---     },
---   }
--- }
+require'lspconfig'.yamlls.setup {
+  capabilities = capabilities,
+  settings = {
+    yaml = {
+      schemas = {
+         ["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*",
+        ["https://raw.githubusercontent.com/instrumenta/kubernetes-json-schema/master/v1.18.0-standalone-strict/all.json"] = "/*.k8s.yaml",
+      },
+    },
+  },
+  filetypes = {
+    "yaml",
+    "yml",
+  },
+}
 
 require'lspconfig'.terraformls.setup{
   capabilities = capabilities,
