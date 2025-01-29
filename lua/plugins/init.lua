@@ -8,11 +8,11 @@ return require('packer').startup(function(use)
   use "EdenEast/nightfox.nvim"
   use 'tiagovla/tokyodark.nvim'
   use 'gbprod/nord.nvim'
+  use 'nvim-lua/plenary.nvim'
 
   use 'nvim-tree/nvim-tree.lua'
   use 'nvim-tree/nvim-web-devicons'
 
-  use 'nvim-lua/plenary.nvim'
   use {
    'nvim-telescope/telescope.nvim', tag = '0.1.6',
     requires = { {'nvim-lua/plenary.nvim'} }
@@ -30,12 +30,12 @@ return require('packer').startup(function(use)
   use {"ellisonleao/glow.nvim", config = function() require("glow").setup() end}
 
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+
+  use { 'nomnivore/ollama.nvim' }
+
   use {
     'ThePrimeagen/harpoon',
     branch = 'harpoon2',
-    requires = { {'nvim-lua/plenary.nvim'}
+    requires = { {'nvim-lua/plenary.nvim'} }
   }
-
-
-}
 end)
