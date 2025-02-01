@@ -31,7 +31,7 @@ return require('packer').startup(function(use)
 
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 
-  use { 'nomnivore/ollama.nvim' }
+  use { 'David-Kunz/gen.nvim' }
 
   use {
     'ThePrimeagen/harpoon',

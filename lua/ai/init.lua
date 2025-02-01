@@ -1,22 +1,8 @@
-require('ollama').setup ({
-  model = "codeqwen",
-  url = "http://127.0.0.1:11434",
-  serve = {
-    command = "docker",
-    args = {
-      "run",
-      "-d",
-      "--rm",
-      --"--gpus=all",
-      "-v",
-      "ollama:/root/.ollama",
-      "-p",
-      "0.0.0.0:11434:11434",
-      "--name",
-      "ollama",
-      "ollama/ollama",
-    },
-    stop_command = "docker",
-    stop_args = { "stop", "ollama" },
-  }
+require('gen').setup({
+  model = "qwen2.5-coder:7b",
+  url = "localhost",
+  port = 11434,
+  show_model = true,
+  display_mode = "split",
+  result_filetype = "markdown",
 })
