@@ -36,6 +36,10 @@ require'lspconfig'.bashls.setup{
   capabilities = capabilities
 }
 
+require'lspconfig'.nixd.setup{
+  capabilities = capabilities
+}
+
 require'lspconfig'.dockerls.setup{
   capabilities = capabilities
 }

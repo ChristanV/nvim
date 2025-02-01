@@ -27,7 +27,7 @@ return require('packer').startup(function(use)
   use 'hrsh7th/vim-vsnip'
   use 'hrsh7th/vim-vsnip-integ'
 
-  use {"ellisonleao/glow.nvim", config = function() require("glow").setup() end}
+  use { 'ellisonleao/glow.nvim' }
 
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 
