@@ -44,7 +44,7 @@ require'lspconfig'.dockerls.setup{
   capabilities = capabilities
 }
 
-require'lspconfig'.java_language_server.setup{
+require'lspconfig'.jdtls.setup{
   capabilities = capabilities
 }
 

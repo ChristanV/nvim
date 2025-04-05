@@ -4,5 +4,7 @@ require('gen').setup({
   port = 11434,
   show_model = true,
   display_mode = "split",
+  no_auto_close = true,
+  file = false,
   result_filetype = "markdown",
 })

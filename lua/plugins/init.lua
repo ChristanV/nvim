@@ -27,8 +27,6 @@ return require('packer').startup(function(use)
   use 'hrsh7th/vim-vsnip'
   use 'hrsh7th/vim-vsnip-integ'
 
-  use { 'ellisonleao/glow.nvim' }
-
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 
   use { 'David-Kunz/gen.nvim' }
@@ -38,4 +36,16 @@ return require('packer').startup(function(use)
     branch = 'harpoon2',
     requires = { {'nvim-lua/plenary.nvim'} }
   }
+
+  use {
+    'MeanderingProgrammer/render-markdown.nvim',
+    after = { 'nvim-treesitter' },
+    requires = { 'nvim-tree/nvim-web-devicons', opt = true },
+    config = function()
+        require('render-markdown').setup({
+          completions = { lsp = { enabled = true } },
+        })
+    end,
+  }
+
 end)
