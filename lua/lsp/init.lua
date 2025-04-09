@@ -170,3 +170,7 @@ require'lspconfig'['pyright'].setup{
 require'lspconfig'.helm_ls.setup{
   capabilities = capabilities
 }
+
+require'lspconfig'.postgres_lsp.setup{
+  capabilities = capabilities
+}

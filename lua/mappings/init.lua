@@ -2,6 +2,7 @@
 -- <leader> => \
 
 local nvimtreeutils = require('tree')
+vim.keymap.set('n', '<C-t>', ":NvimTreeToggle <CR>", { desc = 'ToggleTree' })
 
 local builtin = require 'telescope.builtin'
 vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
