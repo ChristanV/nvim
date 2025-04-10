@@ -21,9 +21,9 @@ require'nvim-tree'.setup({
   },
 })
 
-local M = {}
+local TREE = {}
 
-function M.find_file_and_focus()
+function TREE.find_file_and_focus()
   local actions = require("telescope.actions")
   local action_state = require("telescope.actions.state")
 
@@ -47,7 +47,7 @@ function M.find_file_and_focus()
   })
 end
 
-function M.find_directory_and_focus()
+function TREE.find_directory_and_focus()
   local actions = require("telescope.actions")
   local action_state = require("telescope.actions.state")
 
@@ -70,7 +70,7 @@ function M.find_directory_and_focus()
   })
 end
 
-function M.live_grep()
+function TREE.live_grep()
   local actions = require("telescope.actions")
   local action_state = require("telescope.actions.state")
 
@@ -98,4 +98,9 @@ function M.live_grep()
   })
 end
 
-return M
+function TREE.toggle_tree()
+  local api = require("nvim-tree.api")
+  api.tree.toggle({ focus = false })
+end
+
+return TREE
