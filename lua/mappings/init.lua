@@ -52,7 +52,6 @@ vim.keymap.set('n', '<C-k>', ':wincmd k<CR>', { desc = 'Move to the top window',
 vim.keymap.set('n', '<C-j>', ':wincmd j<CR>', { desc = 'Move to the bottom window', noremap = true, silent = true })
 vim.keymap.set('n', 'q', ':q<CR>', { desc = 'Quit window', noremap = true, silent = true })
 vim.keymap.set('n', 's', ':w<CR>', { desc = "write file", noremap = true, silent = false })
-vim.keymap.set('n', '<leader>d', ':lua vim.lsp.buf.signature_help() <CR>' , { desc = "write file", noremap = true, silent = false })
-
+vim.keymap.set('n', '<leader>k', '<cmd>lua vim.lsp.buf.hover()<CR>', { noremap = true, silent = false })
 --AI
 vim.keymap.set('n', '<leader>c', ':Gen Chat<CR>', { desc = 'Open gen Chat', noremap = true, silent = false })
