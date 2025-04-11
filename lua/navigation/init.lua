@@ -21,9 +21,9 @@ require'nvim-tree'.setup({
   },
 })
 
-local TREE = {}
+local NAVIGATION = {}
 
-function TREE.find_file_and_focus()
+function NAVIGATION.find_file_and_focus()
   local actions = require("telescope.actions")
   local action_state = require("telescope.actions.state")
 
@@ -47,7 +47,7 @@ function TREE.find_file_and_focus()
   })
 end
 
-function TREE.find_directory_and_focus()
+function NAVIGATION.find_directory_and_focus()
   local actions = require("telescope.actions")
   local action_state = require("telescope.actions.state")
 
@@ -70,7 +70,7 @@ function TREE.find_directory_and_focus()
   })
 end
 
-function TREE.live_grep()
+function NAVIGATION.live_grep()
   local actions = require("telescope.actions")
   local action_state = require("telescope.actions.state")
 
@@ -98,9 +98,43 @@ function TREE.live_grep()
   })
 end
 
-function TREE.toggle_tree()
+function NAVIGATION.toggle_tree()
   local api = require("nvim-tree.api")
   api.tree.toggle({ focus = false })
 end
 
-return TREE
+function NAVIGATION.focus_on_current_file(path)
+  local api = require("nvim-tree.api")
+  api.tree.find_file(path, { focus = true, open = false })
+end
+
+local harpoon = require('harpoon')
+local harpoon_extensions = require("harpoon.extensions")
+harpoon:setup()
+harpoon:extend(harpoon_extensions.builtins.highlight_current_file())
+
+-- Bind harpoon with nvim tree to focus on file in tree
+-- run toggle function before and after selection as workaround to not have
+-- flashing text when switching from tree view
+function NAVIGATION.harpoon_switch(index)
+
+  local item = harpoon:list():get(index)
+  if item then
+    NAVIGATION.toggle_tree()
+    harpoon:list():select(index)
+    NAVIGATION.toggle_tree()
+    NAVIGATION.focus_on_current_file(item.value)
+  else
+    print('Harpoon selection is empty')
+  end
+end
+
+function NAVIGATION.harpoon_add()
+  harpoon:list():add()
+end
+
+function NAVIGATION.harpoon_toggle_quick_menu()
+  harpoon.ui:toggle_quick_menu(harpoon:list())
+end
+
+return NAVIGATION
