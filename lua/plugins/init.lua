@@ -38,6 +38,12 @@ return require('packer').startup(function(use)
   }
 
   use {
+    'https://gitlab.com/itaranto/plantuml.nvim',
+    tag = '*',
+    config = function() require('plantuml').setup() end
+  }
+
+  use {
     'MeanderingProgrammer/render-markdown.nvim',
     after = { 'nvim-treesitter' },
     requires = { 'nvim-tree/nvim-web-devicons', opt = true },
