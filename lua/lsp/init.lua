@@ -10,7 +10,14 @@ require'lspconfig'.bashls.setup{
 }
 
 require'lspconfig'.nixd.setup{
-  capabilities = capabilities
+  capabilities = capabilities,
+  settings = {
+    nixd = {
+      formatting = {
+        command = { "nixfmt" },
+      }
+    }
+  }
 }
 
 require'lspconfig'.dockerls.setup{
